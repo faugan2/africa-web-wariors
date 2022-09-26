@@ -3,7 +3,15 @@ import hacking from "../assets/images/hacking.jpg";
 import Seminaire from "./Seminaire";
 import Challenges from "./Challenges";
 import Articles from "./Articles";
+import {useDispatch} from "react-redux";
+import {setModal} from "../slices";
+
 export default function HomeContent() {
+	const dispatch=useDispatch();
+	const show_modal=()=>{
+		dispatch(setModal(2))
+	}
+	
   return (
   <div>
     <div className="flex  justify-between">
@@ -19,8 +27,8 @@ export default function HomeContent() {
             <ion-icon name="ellipse-outline"></ion-icon>
         </div>
 		<p className="text-xs m-2">
-			Devenez <a href="" className="text-blue-600">penTester</a> en suivant notre <a href="" className="text-blue-600">programme</a> conçu pour vous permettre de maitriser et 
-			réussir  vos <a href="" className="text-blue-600">missions de test de pénétration</a>.
+			Devenez <a onClick={show_modal} className="text-blue-600">penTester</a> en suivant notre <a onClick={show_modal} className="text-blue-600">programme</a> conçu pour vous permettre de maitriser et 
+			réussir  vos <a onClick={show_modal} className="text-blue-600">missions de test de pénétration</a>.
 		</p>
         <button className="text-blue-600 border p-2 mt-2 text-sm font-semibold rounded-md hover:opacity-80 border-blue-600 hover:opacity-60" >Commencez gratuitement</button>
 		</div>

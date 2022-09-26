@@ -5,14 +5,20 @@ import { store } from './store';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
+import ModalComponent from "./components/Modal";
+
+import Modal from 'react-modal';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
+
+//Modal.setAppElement('#yourAppElement');
 
 root.render(
   <React.StrictMode>
     <Provider store={store}>
       <App />
+	  <ModalComponent />
     </Provider>
   </React.StrictMode>
 );

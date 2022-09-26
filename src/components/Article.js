@@ -4,7 +4,7 @@ const Article=({article})=>{
 	return(
 		<div className="article  flex gap-2 flex-1 cursor-pointer hover:opacity-60">
 			<div>
-				<img src={article?.image}  className="w-24 h-24" style={{objectFit:"cover"}}/>
+				<img src={article?.image}  className="w-24 h-24 rounded-md" style={{objectFit:"cover"}}/>
 			</div>
 			<div className="flex-1">
 				<h1 className="text-sm font-semibold hover:text-blue-600">{article?.title}</h1>

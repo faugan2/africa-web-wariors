@@ -1,4 +1,17 @@
+import {useState} from "react";
+import {setModal} from "../slices";
+import {useDispatch} from "react-redux";
+
 const Seminaire=()=>{
+	const [open_modal,set_open_modal]=useState(false)
+	const [modal_content,set_modal_content]=useState(null);
+	
+	const dispatch=useDispatch();
+	const show_modal=()=>{
+		dispatch(setModal(1))
+	}
+	
+	
 	return (
 	<div className="flex-1 p-1 border border-l-0 border-t-0 border-b-0 ml-2">
 		<h3 className="text-lg font-semibold ">Séminaire : Création du clone de Facebook</h3>
@@ -15,7 +28,7 @@ const Seminaire=()=>{
 		</div>
 		
 		<div className="text-xs mt-2 mb-2">
-			Cliquez <a href='' target="_blank" className="text-blue-600">ici</a> pour acceder à l'apercu de ce que nous allons créer lors de ce séminaire. Le programme de déroulement du séminaire est consultable <a href="" target="_blank" className="text-blue-600">ici</a>.
+			Cliquez <a  onClick={show_modal} target="_blank" className="text-blue-600 cursor-pointer">ici</a> pour acceder à l'apercu de ce que nous allons créer lors de ce séminaire. Le programme de déroulement du séminaire est consultable <a onClick={show_modal} target="_blank" className="text-blue-600 cursor-pointer">ici</a>.
 		</div>
 		
 		<div className="flex flex-col items-start ">
@@ -36,13 +49,15 @@ const Seminaire=()=>{
 			
 			<p className="text-xs">
 				<span>Bonus : </span>
-				<a href="" className="text-blue-600">2 livres offerts</a>
+				<a  onClick={show_modal} className="text-blue-600 cursor-pointer">2 livres offerts</a>
 			</p>
 			
 		</div>
 		<div className="flex items-center justify-start mt-2">
-			<button className="text-sm   border-blue-600 text-blue-600 font-semibold rounded-md hover:opacity-50">Reservez une place</button>
+			<button className="text-sm   border-blue-600 text-blue-600 font-semibold rounded-md hover:opacity-50" onClick={show_modal}>Reservez une place</button>
 		</div>
+		
+		
 		
 	</div>
 	)
