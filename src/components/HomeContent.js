@@ -6,10 +6,17 @@ import Articles from "./Articles";
 import {useDispatch} from "react-redux";
 import {setModal} from "../slices";
 
+import {useNavigate} from "react-router-dom";
+
 export default function HomeContent() {
 	const dispatch=useDispatch();
+	const navigate=useNavigate();
 	const show_modal=()=>{
 		dispatch(setModal(2))
+	}
+	
+	const go_to_course=()=>{
+		navigate("/training/course=hacking");
 	}
 	
   return (
@@ -30,7 +37,7 @@ export default function HomeContent() {
 			Devenez <a onClick={show_modal} className="text-blue-600">penTester</a> en suivant notre <a onClick={show_modal} className="text-blue-600">programme</a> conçu pour vous permettre de maitriser et 
 			réussir  vos <a onClick={show_modal} className="text-blue-600">missions de test de pénétration</a>.
 		</p>
-        <button className="text-blue-600 border p-2 mt-2 text-sm font-semibold rounded-md hover:opacity-80 border-blue-600 hover:opacity-60" >Commencez gratuitement</button>
+        <button className="text-blue-600 border p-2 mt-2 text-sm font-semibold rounded-md hover:opacity-80 border-blue-600 hover:opacity-60" onClick={go_to_course}>Commencez gratuitement</button>
 		</div>
 		
 		<Challenges />

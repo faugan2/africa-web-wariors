@@ -12,18 +12,18 @@ export default function Footer() {
         <div className={div_style}>
             <h1 className={h1_style}>Afriac Web Warriors</h1>
             <ul>
-                <li className={li_style}><Link to="" className={link_style}>A Propos</Link></li>
-                <li className={li_style}><Link to="" className={link_style}>Tous nos articles</Link></li>
-                <li className={li_style}><Link to="" className={link_style}>Conditions Générale de Vente</Link></li>
-                <li className={li_style}><Link to="" className={link_style}>Mention Légale</Link></li>
+                <li className={li_style}><Link to="/page/name=apropos" className={link_style}>A Propos</Link></li>
+                <li className={li_style}><Link to="/page/name=articles" className={link_style}>Tous nos articles</Link></li>
+                <li className={li_style}><Link to="/page/name=conditions-generales-vente" className={link_style}>Conditions Générale de Vente</Link></li>
+                <li className={li_style}><Link to="/page/name=mention-legale" className={link_style}>Mention Légale</Link></li>
             </ul>
         </div>
 
         <div className={div_style}>
             <h1 className={h1_style}>Nos Formations</h1>
             <ul>
-                <li className={li_style}><Link to="" className={link_style}><ion-icon name="lock-closed-outline"></ion-icon>CyberSécurité (Hacking)</Link></li>
-                <li className={li_style}><Link to="" className={link_style}><ion-icon name="phone-portrait-outline"></ion-icon>Séminaires</Link></li>
+                <li className={li_style}><Link to="/page/name=formation" className={link_style}><ion-icon name="lock-closed-outline"></ion-icon>CyberSécurité (Hacking)</Link></li>
+                <li className={li_style}><Link to="/page/name=seminaire" className={link_style}><ion-icon name="phone-portrait-outline"></ion-icon>Séminaires</Link></li>
                 
             </ul>
         </div>
@@ -31,9 +31,9 @@ export default function Footer() {
         <div className={div_style}>
             <h1 className={h1_style}>Nos Services</h1>
             <ul>
-                <li className={li_style}><Link to="" className={link_style}><ion-icon name="school-outline"></ion-icon>A2W Academy</Link></li>
-                <li className={li_style}><Link to="" className={link_style}><ion-icon name="cube-outline"></ion-icon>A2W Consulting</Link></li>
-                <li className={li_style}><Link to="" className={link_style}><ion-icon name="code-slash-outline"></ion-icon>A2W Free Apps</Link></li>
+                <li className={li_style}><Link to="/page/name=a2w-academy" className={link_style}><ion-icon name="school-outline"></ion-icon>A2W Academy</Link></li>
+                <li className={li_style}><Link to="/page/name=a2w-consulting" className={link_style}><ion-icon name="cube-outline"></ion-icon>A2W Consulting</Link></li>
+                <li className={li_style}><Link to="/page/name=a2w-free-apps" className={link_style}><ion-icon name="code-slash-outline"></ion-icon>A2W Free Apps</Link></li>
             </ul>
         </div>
 

@@ -8,10 +8,12 @@ import img7 from "../assets/images/rubon69.svg";
 import img8 from "../assets/images/rubon18.svg";
 import img9 from "../assets/images/rubon67.svg";
 
+import {useNavigate} from "react-router-dom";
 
 import Challenge from "./Challenge";
 
 const Challenges=()=>{
+	const navigate=useNavigate();
 	const data=[
 	{id:1,name:"Scripting",total_challenges:5,icon:img},
 	{id:2,name:"Système",total_challenges:2,icon:img2},
@@ -23,6 +25,11 @@ const Challenges=()=>{
 	{id:8,name:"Cryptanalyse",total_challenges:12,icon:img8},
 	{id:9,name:"Stéganographie",total_challenges:12,icon:img9},
 	]
+	
+	const go_to_challenge=(challenge)=>{
+		const {id,name}=challenge;
+		navigate("/challenges/name="+name);
+	}
 	return(
 		<div className="bg-blue-100 flex-1 mr-2 text-xs">
 			<div className="bg-blue-600 p-1">
@@ -44,7 +51,7 @@ const Challenges=()=>{
 			 {
 				 data?.map((item)=>{
 					 return(
-						<Challenge challenge={item} key={item.id} />
+						<Challenge challenge={item} key={item.id} click={go_to_challenge} />
 					 )
 				 })
 			 }

@@ -1,10 +1,14 @@
 import React from 'react'
 import logo from "../assets/images/favicon.png";
-import {Link} from "react-router-dom";
+import {Link,useNavigate} from "react-router-dom";
 export default function Nav() {
+	const navigate=useNavigate();
+	const go_to_home=()=>{
+		navigate("/home");
+	}
   return (
     <div className="flex justify-between pt-2 pb-2 border border-l-0 border-r-0 border-t-0 border-b-0 items-center bg-black mb-2">
-        <div className="ml-4 flex items-center gap-1">
+        <div className="ml-4 flex items-center gap-1 cursor-pointer" onClick={go_to_home}>
             <img src={logo}  className="w-12 h-12 rounded-full border bg-gray-300" />
             <h2 className="text-lg font-semibold">Academy</h2>
         </div>

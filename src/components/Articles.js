@@ -4,7 +4,7 @@ import ethical_hacking from "../assets/images/ethical_hacking.jpeg";
 import programmation from "../assets/images/programmation.jpg";
 import security from "../assets/images/security.jpg";
 import cloud from "../assets/images/cloud.png";
-
+import {useNavigate} from "react-router-dom";
 
 const Articles=()=>{
 	const data=[
@@ -14,13 +14,19 @@ const Articles=()=>{
 	{id:4,title:"Titre de la publication",image:security,resume:"resumé de la publication lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem...",duration:5},
 	{id:5,title:"Titre de la publication",image:cloud,resume:"resumé de la publication lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem...",duration:5},
 	]
+	
+	const navigate=useNavigate();
+	const go_to_article=(article)=>{
+		const {id}=article;
+		navigate("/article/id="+id);
+	}
 	return(
 		<div className="border  border-b-0 border-l-0 border-r-0  mt-2 mb-2">
 			<h1 className="text-lg font-semibold m-2 mt-0 ">Nos publications</h1>
 			<div className="grid grid-cols-4 gap-4 m-2">
 			{
 				data?.map((item)=>{
-					return <Article key={item?.id} article={item}/>
+					return <Article key={item?.id} article={item} click={go_to_article} />
 				})
 			}
 				

@@ -1,8 +1,8 @@
 import img from "../assets/images/linux.png";
 
-const Article=({article})=>{
+const Article=({article,click})=>{
 	return(
-		<div className="article  flex gap-2 flex-1 cursor-pointer hover:opacity-60">
+		<div className="article  flex gap-2 flex-1 cursor-pointer hover:opacity-60" onClick={click.bind(this,article)}>
 			<div>
 				<img src={article?.image}  className="w-24 h-24 rounded-md" style={{objectFit:"cover"}}/>
 			</div>
