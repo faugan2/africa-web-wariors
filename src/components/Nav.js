@@ -3,7 +3,7 @@ import logo from "../assets/images/favicon.png";
 import {Link} from "react-router-dom";
 export default function Nav() {
   return (
-    <div className="flex justify-between pt-2 pb-2 border border-l-0 border-r-0 border-t-0 border-b-0 items-center bg-blue-600 mb-2">
+    <div className="flex justify-between pt-2 pb-2 border border-l-0 border-r-0 border-t-0 border-b-0 items-center bg-black mb-2">
         <div className="ml-4 flex items-center gap-1">
             <img src={logo}  className="w-12 h-12 rounded-full border bg-gray-300" />
             <h2 className="text-lg font-semibold">Academy</h2>
