@@ -8,7 +8,7 @@ import img7 from "../assets/images/rubon69.svg";
 import img8 from "../assets/images/rubon18.svg";
 import img9 from "../assets/images/rubon67.svg";
 
-import {useNavigate} from "react-router-dom";
+import {useNavigate,Link} from "react-router-dom";
 
 import Challenge from "./Challenge";
 
@@ -33,7 +33,7 @@ const Challenges=()=>{
 	return(
 		<div className="bg-blue-100 flex-1 mr-2 text-xs">
 			<div className="bg-blue-600 p-1">
-				<h2 className="text-white text-sm">Relevez les défis et emportez des <a href="" className="underline">prix</a></h2>
+				<h2 className="text-white text-sm">Relevez les défis et emportez des <Link to="/page/name=price" className="underline">prix</Link></h2>
 			</div>
 			
 			<div className="p-1">

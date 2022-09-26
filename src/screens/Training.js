@@ -63,7 +63,7 @@ const Training=()=>{
 											item?.data?.map((item2,j)=>{
 												return(
 													<li key={`${i}${j}`} className="hover:bg-gray-50 cursor-pointer">
-														<a className="text-sm ">{item2.title}</a>
+														<a className="text-xs ">{item2.title}</a>
 													</li>
 												);
 											})
@@ -91,7 +91,7 @@ const Training=()=>{
 							<div className="mt-1">
 								<h2 className="text-sm font-semibold underline text-black">A savoir sur ce chapitre</h2>
 								<p className="text-xs">
-									Un petit resume sur le chapitre, ce qu'il faut avoir en tete en lisant ce chapitre
+									Un petit resume sur le chapitre, ce qu'il faut avoir en tete en lisant ce chapitre, ou les pré-requis à avoir
 								</p>
 							</div>
 							
