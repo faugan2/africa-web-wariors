@@ -80,7 +80,7 @@ const ChallengeList=()=>{
 						</div>
 					</div>
 					
-					<div className="mt-8">
+					<div className="mt-8 mb-8">
 						<h2 className="text-2xl font-semibold mb-2"><span className="text-blue-600">{challenge?.total_challenges}</span> Challenges</h2>
 						<div>
 							<table border={1} style={{width:"100%"}} className="border">
@@ -98,7 +98,7 @@ const ChallengeList=()=>{
 								{
 									new Array(10).fill(Math.random()).map((item,i)=>{
 										return(
-											<tr key={i} className={`border h-10  ${i%2==0 ? 'bg-gray-100':''}`}>
+											<tr key={i} className={`border h-10 hover:opacity-60  ${i%2==0 ? 'bg-gray-100':''}`}>
 												<td align="center">{i+1}</td>
 												<td align="center" className="text-xs cursor-pointer">name {Math.random()}</td>
 												<td  align="center" className="flex justify-center gap-4 text-xs items-center">
