@@ -20,14 +20,14 @@ export default function Nav() {
         <div className="mr-4">
             <ul className="flex items-center gap-4">
                 <li className="text-white text-sm font-semibold">
-                    <Link to="/dashboard" >Console</Link>
+                    <Link to="/training/course=hacking" >Console</Link>
                 </li>
                 <li className="text-white text-sm font-semibold  w-10 h-12 flex justify-center items-center hover:opacity-50">
-                    <Link to="/profil" ><ion-icon name="notifications-outline" size="small"></ion-icon></Link>
+                    <Link to="/page/name=notifications" ><ion-icon name="notifications-outline" size="small"></ion-icon></Link>
                 </li>
 
                 <li className="text-white text-sm font-semibold  w-10 flex justify-center h-12 items-center hover:opacity-50">
-                    <Link to="/profil" ><ion-icon name="person-outline" size="small"></ion-icon></Link>
+                    <Link to="/page/name=profile" ><ion-icon name="person-outline" size="small"></ion-icon></Link>
                 </li>
             </ul>
         </div>
