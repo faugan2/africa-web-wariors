@@ -27,6 +27,18 @@ export default function Footer() {
                 
             </ul>
         </div>
+		
+		 <div className={div_style}>
+            <h1 className={h1_style}>Pour les hackeurs</h1>
+            <ul>
+                <li className={li_style}><Link to="/training/course=network" className={link_style}><ion-icon name="lock-closed-outline"></ion-icon>Réseaux</Link></li>
+                <li className={li_style}><Link to="/training/course=linux" className={link_style}><ion-icon name="phone-portrait-outline"></ion-icon>Linux</Link></li>
+				 <li className={li_style}><Link to="/training/course=bash-scripting" className={link_style}><ion-icon name="phone-portrait-outline"></ion-icon>Bach scripting</Link></li>
+				 <li className={li_style}><Link to="/training/course=python-scripting" className={link_style}><ion-icon name="phone-portrait-outline"></ion-icon>Python scripting</Link></li>
+                
+            </ul>
+        </div>
+		
 
         <div className={div_style}>
             <h1 className={h1_style}>Nos Services</h1>
