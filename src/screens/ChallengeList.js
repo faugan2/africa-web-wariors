@@ -13,9 +13,13 @@ import img8 from "../assets/images/rubon18.svg";
 import img9 from "../assets/images/rubon67.svg";
 import Challenge from "../components/Challenge";
 import {useNavigate,Link} from "react-router-dom";
+import {setModal} from "../slices";
+
+import {useDispatch} from "react-redux";
 
 const ChallengeList=()=>{
 	const {name}=useParams();
+	const dispatch=useDispatch();
 	const [challenge,set_challenge]=useState(null);
 	
 	const data=[
@@ -45,6 +49,10 @@ const ChallengeList=()=>{
 		navigate("/challenges/name="+name);
 	}
 	
+	
+	const challenge_detail=(challenge)=>{
+		dispatch(setModal(1));
+	}
 	
 	return(
 		<div>
@@ -98,7 +106,7 @@ const ChallengeList=()=>{
 								{
 									new Array(10).fill(Math.random()).map((item,i)=>{
 										return(
-											<tr key={i} className={`border h-10 hover:opacity-60  ${i%2==0 ? 'bg-gray-100':''}`}>
+											<tr key={i} className={`border h-10 hover:opacity-60  ${i%2==0 ? 'bg-gray-100':''}`} onClick={challenge_detail.bind(this,item)}>
 												<td align="center">{i+1}</td>
 												<td align="center" className="text-xs cursor-pointer">name {Math.random()}</td>
 												<td  align="center" className="flex justify-center gap-4 text-xs items-center">
