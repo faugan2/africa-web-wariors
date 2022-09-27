@@ -40,7 +40,7 @@ export default function HomeContent() {
 		
 		{index==2 &&<div className="flex flex-col items-center cursor-pointer hover:opacity-80">
             <img src={ethical_hacking} className="w-64 rounded-md bg-black h-54" style={{width:200,height:180,objectFit:"contain"}} />
-            <p className="text-lg font-semibold">Trouvez des failles dans les systèmes</p>
+            <p className="text-lg font-semibold">Exploitez les failles</p>
         </div>}
         <div>
             <button onClick={()=>set_index(0)}><ion-icon name={`${index==0 ? 'ellipse':'ellipse-outline'}`}></ion-icon></button>

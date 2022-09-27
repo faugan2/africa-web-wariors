@@ -14,6 +14,8 @@ import Article from "./screens/Article";
 import Page from "./screens/Page";
 import Profile from "./screens/Profile";
 import Notifications from "./screens/Notifications";
+import Login from "./screens/Login";
+import Search from "./screens/Search";
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
           <Route path="/page/name=:name" exact element={<Page />} />
           <Route path="/profile" exact element={<Profile />} />
           <Route path="/notifications" exact element={<Notifications />} />
+          <Route path="/auth" exact element={<Login />} />
+          <Route path="/search" exact element={<Search />} />
         </Routes>
     </Router>
   );
