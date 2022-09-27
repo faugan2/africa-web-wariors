@@ -13,7 +13,6 @@ export default function Footer() {
             <h1 className={h1_style}>Afriac Web Warriors</h1>
             <ul>
                 <li className={li_style}><Link to="/page/name=apropos" className={link_style}>A Propos</Link></li>
-                <li className={li_style}><Link to="/page/name=articles" className={link_style}>Tous nos articles</Link></li>
                 <li className={li_style}><Link to="/page/name=conditions-generales-vente" className={link_style}>Conditions Générale de Vente</Link></li>
                 <li className={li_style}><Link to="/page/name=mention-legale" className={link_style}>Mention Légale</Link></li>
             </ul>
@@ -29,7 +28,7 @@ export default function Footer() {
         </div>
 		
 		 <div className={div_style}>
-            <h1 className={h1_style}>Pour les hackeurs</h1>
+            <h1 className={h1_style}>Pour le hacking</h1>
             <ul>
                 <li className={li_style}><Link to="/training/course=network" className={link_style}><ion-icon name="lock-closed-outline"></ion-icon>Réseaux</Link></li>
                 <li className={li_style}><Link to="/training/course=linux" className={link_style}><ion-icon name="phone-portrait-outline"></ion-icon>Linux</Link></li>

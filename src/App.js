@@ -12,6 +12,8 @@ import Training from "./screens/Training";
 import ChallengeList from "./screens/ChallengeList";
 import Article from "./screens/Article";
 import Page from "./screens/Page";
+import Profile from "./screens/Profile";
+import Notifications from "./screens/Notifications";
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
           <Route path="/challenges/name=:name" exact element={<ChallengeList />} />
           <Route path="/article/id=:id" exact element={<Article />} />
           <Route path="/page/name=:name" exact element={<Page />} />
+          <Route path="/profile" exact element={<Profile />} />
+          <Route path="/notifications" exact element={<Notifications />} />
         </Routes>
     </Router>
   );

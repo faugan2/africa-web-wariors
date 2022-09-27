@@ -10,7 +10,7 @@ export default function Nav() {
     <div className="flex justify-between pt-2 pb-2 border border-l-0 border-r-0 border-t-0 border-b-0 items-center bg-black mb-2">
         <div className="ml-4 flex items-center gap-1 cursor-pointer" onClick={go_to_home}>
             <img src={logo}  className="w-12 h-12 rounded-full border bg-gray-300" />
-            <h2 className="text-lg font-semibold">Academy</h2>
+            <h2 className="text-lg font-semibold text-white">Academy</h2>
         </div>
         <div className="bg-gray-50 p-2 flex items-center rounded-md" >
            <input type="text" placeholder='Rechercher' 
@@ -23,11 +23,11 @@ export default function Nav() {
                     <Link to="/training/course=hacking" >Console</Link>
                 </li>
                 <li className="text-white text-sm font-semibold  w-10 h-12 flex justify-center items-center hover:opacity-50">
-                    <Link to="/page/name=notifications" ><ion-icon name="notifications-outline" size="small"></ion-icon></Link>
+                    <Link to="/notifications" ><ion-icon name="notifications-outline" size="small"></ion-icon></Link>
                 </li>
 
                 <li className="text-white text-sm font-semibold  w-10 flex justify-center h-12 items-center hover:opacity-50">
-                    <Link to="/page/name=profile" ><ion-icon name="person-outline" size="small"></ion-icon></Link>
+                    <Link to="/profile" ><ion-icon name="person-outline" size="small"></ion-icon></Link>
                 </li>
             </ul>
         </div>
