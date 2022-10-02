@@ -14,7 +14,7 @@ const Seminaire=()=>{
 	
 	return (
 	<div className="flex-1 p-1 border border-l-0 border-t-0 border-b-0 ml-2">
-		<h3 className="text-lg font-semibold ">Séminaire : Création du clone de Facebook</h3>
+		<h3 className="text-2xl font-semibold ">Séminaire : Création du clone de Facebook</h3>
 		<p className="text-sm">
 			Lors de ce séminaire, nous allons reconstruire l'application facebook avec les technologies suivantes:
 		</p>

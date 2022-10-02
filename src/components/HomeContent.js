@@ -5,6 +5,7 @@ import ethical_hacking from "../assets/images/ethical_hacking.jpeg";
 
 import Seminaire from "./Seminaire";
 import Challenges from "./Challenges";
+import Certifications from "./Certifications";
 import Articles from "./Articles";
 import {useDispatch} from "react-redux";
 import {setModal} from "../slices";
@@ -54,8 +55,11 @@ export default function HomeContent() {
         <button className="text-blue-600 border p-2 mt-2 text-sm font-semibold rounded-md hover:opacity-80 border-blue-600 hover:opacity-60" onClick={go_to_course}>Commencez gratuitement</button>
 		</div>
 		
+		
+		
 		<Challenges />
     </div>
+	<Certifications />
 	<Articles />
 	</div>
   )

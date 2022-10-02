@@ -16,6 +16,7 @@ import Profile from "./screens/Profile";
 import Notifications from "./screens/Notifications";
 import Login from "./screens/Login";
 import Search from "./screens/Search";
+import Certification from "./screens/Certification";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="/notifications" exact element={<Notifications />} />
           <Route path="/auth" exact element={<Login />} />
           <Route path="/search" exact element={<Search />} />
+          <Route path="/certification/id=:id" exact element={<Certification />} />
         </Routes>
     </Router>
   );
