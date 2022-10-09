@@ -1,0 +1,39 @@
+[debug] [2022-10-02T09:04:46.468Z] ----------------------------------------------------------------------
+[debug] [2022-10-02T09:04:46.473Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\FOGAN\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js login
+[debug] [2022-10-02T09:04:46.474Z] CLI Version:   11.9.0
+[debug] [2022-10-02T09:04:46.474Z] Platform:      win32
+[debug] [2022-10-02T09:04:46.475Z] Node Version:  v16.13.1
+[debug] [2022-10-02T09:04:46.490Z] Time:          Sun Oct 02 2022 09:04:46 GMT+0000 (Temps universel coordonné)
+[debug] [2022-10-02T09:04:46.490Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-10-02T09:04:46.499Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[info] Already logged in as prosportdotguru@gmail.com
+[debug] [2022-10-02T09:04:56.710Z] Error: Timed out.
+    at Timeout._onTimeout (C:\Users\FOGAN\AppData\Roaming\npm\node_modules\firebase-tools\lib\utils.js:253:49)
+    at listOnTimeout (node:internal/timers:557:17)
+    at processTimers (node:internal/timers:500:7)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2022-10-02T09:05:13.788Z] ----------------------------------------------------------------------
+[debug] [2022-10-02T09:05:13.794Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\FOGAN\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js logout
+[debug] [2022-10-02T09:05:13.794Z] CLI Version:   11.9.0
+[debug] [2022-10-02T09:05:13.795Z] Platform:      win32
+[debug] [2022-10-02T09:05:13.795Z] Node Version:  v16.13.1
+[debug] [2022-10-02T09:05:13.797Z] Time:          Sun Oct 02 2022 09:05:13 GMT+0000 (Temps universel coordonné)
+[debug] [2022-10-02T09:05:13.797Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-10-02T09:05:13.804Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2022-10-02T09:05:14.042Z] >>> [apiv2][query] GET https://accounts.google.com/o/oauth2/revoke token=1%2F%2F03LQjTq81WwGhCgYIARAAGAMSNwF-L9IrFwSPv81mDVI8vJsGiVJp4_X_emSZYKLo5CNl69Wf4eOdDHMKqLTS22L9JsR3QmZt5Eg
+[debug] [2022-10-02T09:05:34.990Z] ----------------------------------------------------------------------
+[debug] [2022-10-02T09:05:34.995Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\FOGAN\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js login
+[debug] [2022-10-02T09:05:34.996Z] CLI Version:   11.9.0
+[debug] [2022-10-02T09:05:34.996Z] Platform:      win32
+[debug] [2022-10-02T09:05:34.997Z] Node Version:  v16.13.1
+[debug] [2022-10-02T09:05:34.999Z] Time:          Sun Oct 02 2022 09:05:34 GMT+0000 (Temps universel coordonné)
+[debug] [2022-10-02T09:05:35.000Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-10-02T09:05:35.008Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[info] i  Firebase optionally collects CLI and Emulator Suite usage and error reporting information to help improve our products. Data is collected in accordance with Google's privacy policy (https://policies.google.com/privacy) and is not used to identify you.
+ 
+[debug] [2022-10-02T09:05:51.179Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2022-10-02T09:05:51.180Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}

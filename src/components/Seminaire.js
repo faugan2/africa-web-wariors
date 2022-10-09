@@ -1,10 +1,29 @@
 import {useState} from "react";
 import {setModal} from "../slices";
-import {useDispatch} from "react-redux";
+
+
+import {useEffect} from "react";
+import {useSelector,useDispatch} from "react-redux";
+import {selectSeminaires,setSeminaires} from "../slices";
+import {get_publications} from "../functions";
 
 const Seminaire=()=>{
 	const [open_modal,set_open_modal]=useState(false)
 	const [modal_content,set_modal_content]=useState(null);
+	const [data,set_data]=useState(null);
+	
+	const semainaires=useSelector(selectSeminaires);
+	
+	useEffect(()=>{
+		if(semainaires==null){
+			get_publications(dispatch,setSeminaires,"seminaires")
+			return;
+		}
+		const res=semainaires;
+		set_data(res[0]);
+		
+		
+	},[semainaires])
 	
 	const dispatch=useDispatch();
 	const show_modal=()=>{
@@ -12,19 +31,13 @@ const Seminaire=()=>{
 	}
 	
 	
+	
+	
 	return (
 	<div className="flex-1 p-1 border border-l-0 border-t-0 border-b-0 ml-2">
-		<h3 className="text-2xl font-semibold ">Séminaire : Création du clone de Facebook</h3>
-		<p className="text-sm">
-			Lors de ce séminaire, nous allons reconstruire l'application facebook avec les technologies suivantes:
-		</p>
-		<div className="text-xs mt-2 font-semibold">
-			<ol className="list-disc ml-4">
-				<li className="p-0.5">ReactJS</li>
-				<li className="p-0.5">Tailwinds CSS</li>
-				<li className="p-0.5">Firebase</li>
-				<li className="p-0.5">Redux</li>
-			</ol>
+		<h3 className="text-2xl font-semibold ">{data?.title?.rendered}</h3>
+		<div>
+		{data?.acf?.description}
 		</div>
 		
 		<div className="text-xs mt-2 mb-2">
@@ -34,22 +47,22 @@ const Seminaire=()=>{
 		<div className="flex flex-col items-start ">
 			<p className="text-xs">
 				<span>Lieu : </span>
-				<span>Lomé</span>
+				<span>{data?.acf?.lieu}</span>
 			</p>
 			
 			<p className="text-xs">
 				<span>Date : </span>
-				<span>5 au 7 Jan 2023 de 8h à 13h  </span>
+				<span>{data?.acf?.date}</span>
 			</p>
 			
 			<p className="text-xs">
 				<span>Participation : </span>
-				<span>5 000 CFA</span>
+				<span>{data?.acf?.participation} CFA</span>
 			</p>
 			
 			<p className="text-xs">
 				<span>Bonus : </span>
-				<a  onClick={show_modal} className="text-blue-600 cursor-pointer">2 livres offerts</a>
+				<a  onClick={show_modal} className="text-blue-600 cursor-pointer">{data?.acf?.bonus}</a>
 			</p>
 			
 		</div>

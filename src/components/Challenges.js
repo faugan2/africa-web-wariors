@@ -10,25 +10,43 @@ import img9 from "../assets/images/rubon67.svg";
 
 import {useNavigate,Link} from "react-router-dom";
 
+import {useEffect,useState} from "react";
+import {useSelector,useDispatch} from "react-redux";
+import {selectDefiBanner,setDefiBanner,selectChallengeTypes,setChallengeTypes} from "../slices";
+import {get_publications} from "../functions";
+
 import Challenge from "./Challenge";
 
 const Challenges=()=>{
 	const navigate=useNavigate();
-	const data=[
-	{id:1,name:"Scripting",total_challenges:5,icon:img},
-	{id:2,name:"Système",total_challenges:2,icon:img2},
-	{id:3,name:"programmation",total_challenges:12,icon:img3},
-	{id:4,name:"Réseau",total_challenges:12,icon:img4},
-	{id:5,name:"Web",total_challenges:12,icon:img5},
-	{id:6,name:"Forensic",total_challenges:12,icon:img6},
-	{id:7,name:"Craking",total_challenges:12,icon:img7},
-	{id:8,name:"Cryptanalyse",total_challenges:12,icon:img8},
-	{id:9,name:"Stéganographie",total_challenges:12,icon:img9},
-	]
+	const dispatch=useDispatch();
+	const db=useSelector(selectDefiBanner)
+	const ct=useSelector(selectChallengeTypes);
+	
+	const [defi_banner,set_defi_banner]=useState(null);
+	const [data,set_data]=useState(null);
+	
+	useEffect(()=>{
+		if(db==null){
+			get_publications(dispatch,setDefiBanner,"defis_banner");
+			return;
+		}
+		const res=db[0] ?? null;
+		set_defi_banner(res);
+	},[db])
+	
+	useEffect(()=>{
+		if(ct==null){
+			get_publications(dispatch,setChallengeTypes,"challenge_type");
+			return;
+		}
+		set_data(ct);
+	},[ct])
+	
 	
 	const go_to_challenge=(challenge)=>{
 		const {id,name}=challenge;
-		navigate("/challenges/name="+name);
+		navigate("/challenges/name="+id);
 	}
 	return(
 		<div className="bg-blue-100 flex-1 mr-2 text-xs">
@@ -37,17 +55,11 @@ const Challenges=()=>{
 			</div>
 			
 			<div className="p-1">
-				<h1 className="font-semibold mb-2">Plus de 150 challenges sont mis à votre disposition pour vous entrainer au hacking.</h1>
-
-			<p>Entrainez-vous sur des challenges de sécurité et de hacking. Forensic, cracking, web, cryptanalyse, réseau, programmation,scripting, etc. Pour chaque challenge, vous avez la possibilité de :</p>
-			
-			<ol className="m-2 p-2 list-disc">
-				<li>consulter des ressources associées au sujet traité par le challenge ;</li>
-				<li>consulter les solutions / proposer une solution, une fois le challenge validé ;</li>
-				<li>demander de l’aide sur le forum.</li>
-			</ol>
+				<div>
+				{defi_banner?.acf?.text}
+				</div>
 			 
-			 <div className="grid grid-cols-3 gap-4 ">
+			 <div className="grid grid-cols-3 gap-4 mt-4">
 			 {
 				 data?.map((item)=>{
 					 return(

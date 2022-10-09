@@ -14,16 +14,38 @@ import {useNavigate} from "react-router-dom";
 
 import Challenge from "../components/Challenge";
 
+import {useState,useEffect} from "react";
+import {useSelector,useDispatch} from "react-redux";
+import {selectPublications,setPublications} from "../slices";
+import {get_publications} from "../functions";
 
 const ArticleContent=()=>{
 	const {id}=useParams();
-	const data=[
-	{id:1,title:"Titre de la publication",image:img,resume:"resumé de la publication lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem...",duration:5},
-	{id:2,title:"Titre de la publication",image:ethical_hacking,resume:"resumé de la publication lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem...",duration:5},
-	{id:3,title:"Titre de la publication",image:programmation,resume:"resumé de la publication lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem...",duration:5},
-	{id:4,title:"Titre de la publication",image:security,resume:"resumé de la publication lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem...",duration:5},
-	{id:5,title:"Titre de la publication",image:cloud,resume:"resumé de la publication lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem...",duration:5},
-	]
+	const publications=useSelector(selectPublications);
+	const [data,set_data]=useState(null);
+	const [article,set_article]=useState(null);
+	
+	const dispatch=useDispatch();
+	useEffect(()=>{
+		if(publications==null){
+			get_publications(dispatch,setPublications,"publication");
+			return;
+		}
+		const res1=publications?.filter((item)=>{
+			return item?.id!=id;
+		})
+		set_data(res1);
+		//set_data(publications);
+		const res=publications?.filter((item)=>{
+			return item?.id==id;
+		})
+		if(res?.length>0){
+			set_article(res[0])
+		}
+	},[publications,id])
+	
+	
+	
 	
 	const navigate=useNavigate();
 	const go_to_article=(article)=>{
@@ -43,7 +65,9 @@ const ArticleContent=()=>{
 					}
 				</div>
 				<div className="border flex-1 mr-4 border-r-0 border-t-0 border-b-0 pl-2">
-					Article to {id}
+				<h1 className="text-xl font-bold">{article?.title?.rendered}</h1>
+				<p className="text-blue-600 text-sm">{article?.acf?.duration} minutes de lecture</p>
+				{article?.acf?.description}
 				</div>
 			
 			</div>

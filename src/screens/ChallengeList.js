@@ -17,12 +17,20 @@ import {setModal} from "../slices";
 
 import {useDispatch} from "react-redux";
 
+import {useSelector} from "react-redux";
+import {selectChallengeTypes,setChallengeTypes} from "../slices";
+import {get_publications} from "../functions";
+
+
 const ChallengeList=()=>{
 	const {name}=useParams();
 	const dispatch=useDispatch();
 	const [challenge,set_challenge]=useState(null);
+	const ct=useSelector(selectChallengeTypes);
 	
-	const data=[
+	const [data,set_data]=useState(null);
+	
+	/*const data=[
 	{id:1,name:"Scripting",total_challenges:5,icon:img},
 	{id:2,name:"Système",total_challenges:2,icon:img2},
 	{id:3,name:"programmation",total_challenges:12,icon:img3},
@@ -32,21 +40,33 @@ const ChallengeList=()=>{
 	{id:7,name:"Craking",total_challenges:12,icon:img7},
 	{id:8,name:"Cryptanalyse",total_challenges:12,icon:img8},
 	{id:9,name:"Stéganographie",total_challenges:12,icon:img9},
-	]
+	]*/
+	
+	useEffect(()=>{
+		if(ct==null){
+			get_publications(dispatch,setChallengeTypes,"challenge_type");
+			return;
+		}
+		const res=ct?.filter((item)=>{
+			return item?.id!=name;
+		})
+		set_data(res);
+	},[ct,name])
+	
 	
 	useEffect(()=>{
 		const res=data?.filter((item)=>{
-			return item?.name==name;
+			return item?.id==name;
 		})
 		if(res?.length>0){
 			set_challenge(res[0])
 		}
-	},[name])
+	},[data,name])
 	const navigate=useNavigate();
 	
 	const go_to_challenge=(challenge)=>{
 		const {id,name}=challenge;
-		navigate("/challenges/name="+name);
+		navigate("/challenges/name="+id);
 	}
 	
 	
@@ -75,16 +95,12 @@ const ChallengeList=()=>{
 				<div className="flex-1 mt-4">
 					<div>
 						<div className="flex items-center gap-4">
-							<img src={challenge?.icon} className="w-12 h-12"/>
-							<h1 className="text-2xl font-semibold">{challenge?.name}</h1>
+							<img src={challenge?.acf?.image?.url} className="w-12 h-12"/>
+							<h1 className="text-2xl font-semibold">{challenge?.title?.rendered}</h1>
 						</div>
 						
 						<div className="mt-2 text-sm">
-							Details sur cette catégorie de challenge Details sur cette catégorie de challenge
-							Details sur cette catégorie de challenge Details sur cette catégorie de challenge
-							Details sur cette catégorie de challengeDetails sur cette catégorie de challenge
-							Details sur cette catégorie de challengeDetails sur cette catégorie de challenge
-							Details sur cette catégorie de challenge Details sur cette catégorie de challenge
+						{challenge?.acf?.description}
 						</div>
 					</div>
 					

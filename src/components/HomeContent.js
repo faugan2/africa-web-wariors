@@ -12,14 +12,29 @@ import {setModal} from "../slices";
 
 import {useNavigate} from "react-router-dom";
 
+import {useSelector} from "react-redux";
+import {selectSlideBottom,setSlideBottom} from "../slices";
+import {get_publications} from "../functions";
+
 export default function HomeContent() {
+	const sb=useSelector(selectSlideBottom);
+	
 	const [index,set_index]=useState(1);
+	const [slide_bottom,set_slide_bottom]=useState(null);
 	
 	const dispatch=useDispatch();
 	const navigate=useNavigate();
 	const show_modal=()=>{
 		dispatch(setModal(2))
 	}
+	
+	useEffect(()=>{
+		if(sb==null){
+			get_publications(dispatch,setSlideBottom,"slides_bottom");
+			return;
+		}
+		set_slide_bottom(sb[0])
+	},[sb])
 	
 	const go_to_course=()=>{
 		navigate("/training/course=hacking");
@@ -48,10 +63,9 @@ export default function HomeContent() {
              <button onClick={()=>set_index(1)}><ion-icon name={`${index==1 ? 'ellipse':'ellipse-outline'}`}></ion-icon></button>
              <button onClick={()=>set_index(2)}><ion-icon name={`${index==2 ? 'ellipse':'ellipse-outline'}`}></ion-icon></button>
         </div>
-		<p className="text-xs m-2">
-			Devenez <a onClick={show_modal} className="text-blue-600">penTester</a> en suivant notre <a onClick={show_modal} className="text-blue-600">programme</a> conçu pour vous permettre de maitriser et 
-			réussir  vos <a onClick={show_modal} className="text-blue-600">missions de test de pénétration</a>.
-		</p>
+		<div>
+		{slide_bottom?.acf?.text}
+		</div>
         <button className="text-blue-600 border p-2 mt-2 text-sm font-semibold rounded-md hover:opacity-80 border-blue-600 hover:opacity-60" onClick={go_to_course}>Commencez gratuitement</button>
 		</div>
 		
